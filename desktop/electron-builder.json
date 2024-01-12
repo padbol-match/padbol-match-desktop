@@ -1,0 +1,64 @@
+{
+  "asar": false,
+  "directories": {
+    "output": "release/"
+  },
+  "files": [
+    "**/*",
+    "!**/*.ts",
+    "!*.map",
+    "!package.json",
+    "!package-lock.json"
+  ],
+  "extraResources": [
+    {
+      "from": "dist",
+      "to": "app",
+      "filter": [
+        "**/*"
+      ]
+    },
+    {
+      "from": "../app/dist/main.exe",
+      "to": "app/dist/main.exe",
+      "filter": [
+          "**/*"
+      ]
+    },
+    {
+      "from": "../app_recorder/dist/main_recorder.exe",
+      "to": "app/dist/main_recorder.exe",
+      "filter": [
+          "**/*"
+      ]
+    },
+    {
+      "from": "../app_kill_process/dist/kill_process.exe",
+      "to": "app/dist/kill_process.exe",
+      "filter": [
+          "**/*"
+      ]
+    }
+  ],
+  "win": {
+    "icon": "dist/assets/icons",
+    "target": [
+      "portable"
+    ]
+  },
+  "portable": {
+    "splashImage": "dist/assets/icons/electron.bmp"
+  },
+  "mac": {
+    "icon": "dist/assets/icons",
+    "target": [
+      "dmg"
+    ]
+  },
+  "linux": {
+    "icon": "dist/assets/icons",
+    "target": [
+      "AppImage"
+    ]
+  }
+}
